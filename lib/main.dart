@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '24+2  ',
+                      input,
                       style: TextStyle(fontSize: 42.0),
                     ),
                     Text(
@@ -68,8 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: InkWell(
                     onTap: (){
-                      input = input + '1';
-                      print('$input');
+                      setState(() {
+                        input = input + '1';
+                      });
                     },
                     child: Container(
                       child: Text(
