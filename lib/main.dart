@@ -9,6 +9,9 @@ void main() {
 String input = '';
 String value = '';
 int value1 = 0;
+int value2 = 0;
+int result = 0;
+String finalResult = '';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -54,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(fontSize: 42.0),
                     ),
                     Text(
-                      '= 26  ',
+                      finalResult,
                       style: TextStyle(fontSize: 48.0),
                     ),
                   ],
@@ -62,14 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-
-
           Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         input = input + '1';
                         value = value + '1';
@@ -116,9 +117,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.red.shade400,
                       alignment: Alignment.center,
                     ),
-                    onTap: (){
+                    onTap: () {
                       setState(() {
-
                         input = input + '+';
                         value1 = int.parse(value);
                         value = '';
@@ -246,13 +246,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    child: Text(
-                      '=',
-                      style: TextStyle(color: Colors.white, fontSize: 36.0),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        value2 = int.parse(value);
+                        result = value1 + value2;
+                        print(result);
+                        finalResult = '=' + result.toString();
+                      });
+                    },
+                    child: Container(
+                      child: Text(
+                        '=',
+                        style: TextStyle(color: Colors.white, fontSize: 36.0),
+                      ),
+                      color: Colors.red.shade500,
+                      alignment: Alignment.center,
                     ),
-                    color: Colors.red.shade500,
-                    alignment: Alignment.center,
                   ),
                 ),
                 Expanded(
