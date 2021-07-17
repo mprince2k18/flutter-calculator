@@ -7,7 +7,8 @@ void main() {
 }
 
 String input = '';
-String operator = '';
+String value = '';
+int value1 = 0;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -71,6 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: (){
                       setState(() {
                         input = input + '1';
+                        value = value + '1';
+                        print(value);
                       });
                     },
                     child: Container(
@@ -104,13 +107,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    child: Text(
-                      '+',
-                      style: TextStyle(color: Colors.white, fontSize: 36.0),
+                  child: InkWell(
+                    child: Container(
+                      child: Text(
+                        '+',
+                        style: TextStyle(color: Colors.white, fontSize: 36.0),
+                      ),
+                      color: Colors.red.shade400,
+                      alignment: Alignment.center,
                     ),
-                    color: Colors.red.shade400,
-                    alignment: Alignment.center,
+                    onTap: (){
+                      setState(() {
+
+                        input = input + '+';
+                        value1 = int.parse(value);
+                        value = '';
+                        print(value1);
+                      });
+                    },
                   ),
                 ),
               ],
