@@ -6,6 +6,8 @@ void main() {
   runApp(MyApp());
 }
 
+String input = '';
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
@@ -58,17 +60,25 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+
+
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    child: Text(
-                      '1',
-                      style: TextStyle(color: Colors.white, fontSize: 36.0),
+                  child: InkWell(
+                    onTap: (){
+                      input = input + '1';
+                      print('$input');
+                    },
+                    child: Container(
+                      child: Text(
+                        '1',
+                        style: TextStyle(color: Colors.white, fontSize: 36.0),
+                      ),
+                      color: Colors.red.shade700,
+                      alignment: Alignment.center,
                     ),
-                    color: Colors.red.shade700,
-                    alignment: Alignment.center,
                   ),
                 ),
                 Expanded(
