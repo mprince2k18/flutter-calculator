@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         title: Text(
-          'Mumu Calculator',
+          'Calculator',
           style: TextStyle(fontSize: 24.0, color: Colors.white70),
         ),
         centerTitle: true,
